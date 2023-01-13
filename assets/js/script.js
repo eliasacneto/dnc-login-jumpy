@@ -1,0 +1,5 @@
+const name = document.getElementById('name')
+const email = document.getElementById('email')
+const phone = document.getElementById('phone')
+const cpf = document.getElementById('cpf')
+const password = document.getElementById('password')
