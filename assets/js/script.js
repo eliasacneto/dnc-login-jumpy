@@ -8,14 +8,15 @@ const cpf = document.getElementById('cpf')
 const password = document.getElementById('password')
 
 
-// phone.addEventListener('keypress', () =>{
-//   let phoneLength = phone.value.length
+phone.addEventListener('keypress', (e) => phoneMask(e.target.value)) //Dispara quando digitado no campo
+phone.addEventListener('change', (e) => phoneMask(e.target.value)) // Dispara quando autocompletado o campo
 
-//   if(phoneLength == 0 || phoneLenght == 3){
-//     phone.value += '('
-//   }
-
-// })
+const phoneMask = (mask) => {
+  mask = mask.replace(/\D/g,"")
+  mask = mask.replace(/^(\d{2})(\d)/g, "($1) $2")
+  mask = mask.replace(/(\d)(\d{4})$/, "$1-$2")
+  phone.value = mask // insert number on field
+}
 
   cpf.addEventListener('keypress', () =>{
     let cpfLength = cpf.value.length
