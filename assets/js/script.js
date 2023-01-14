@@ -1,14 +1,9 @@
-// If field is empty shows: *Campo Obrigatório*
-// If the form contains an empty field show the message: Campos obrigatórios não registrados. if not show Sucesso 
 const form = document.getElementById('form')
 const username = document.getElementById ('username')
 const email = document.getElementById('email')
 const phone = document.getElementById('phone')
 const cpf = document.getElementById('cpf')
 const password = document.getElementById('password')
-const signup = document.getElementById('alert')
-
-
 
 phone.addEventListener('keypress', (e) => phoneMask(e.target.value)) //insert mask when key is pressed
 phone.addEventListener('change', (e) => phoneMask(e.target.value)) // change to the mask pattern
@@ -44,11 +39,7 @@ function checkInput(){
   const phoneValue = phone.value
   const cpfValue = cpf.value
   const passwordValue = password.value
- 
-
-  let filled = true
-
-
+  let isFilled = true
 
   if(usernameValue === ''){
     //show error | add class error
@@ -61,7 +52,7 @@ function checkInput(){
   if(emailValue === ''){
     //show error | add class error
     errorValidation(email, '*Campo Obrigatório*')
-    filled = false
+    isFilled = false
   } else {
     removeError(email, '')
   }
@@ -69,54 +60,51 @@ function checkInput(){
   if(phoneValue === ''){
     //show error | add class error
     errorValidation(phone, '*Campo Obrigatório*')
-    filled = false
+    isFilled = false
   } else {
     removeError(phone, '')
-
   }
 
   if(cpfValue === ''){
     //show error | add class error
     errorValidation(cpf, '*Campo Obrigatório*')
-    filled = false
+    isFilled = false
   } else {
     removeError(cpf, '')
-
-  }
+    }
 
   if(passwordValue === ''){
     //show error | add class error
     errorValidation(password, '*Campo Obrigatório*')
-    filled = false
+    isFilled = false
   } else {
     removeError(password, '')
   }
-  
-  if(filled === false){
+
+/*
+  Here I do the checking: If field any field is empty the message shows: Campos obrigatórios não registrados. if not it shows: Sucesso!   
+*/ 
+  if(isFilled === false){
     const error = document.getElementById('alert')
     error.innerText = 'Campos obrigatórios não registrados'
     error.className = 'input-area alert'
-    console.log('Campos obrigatórios não registrados.')
+    // console.log('Campos obrigatórios não registrados.')
   }
   else{
     const success = document.getElementById('alert')
     success.innerText = 'Sucesso!'
     success.className = 'input-area success'
-
-    console.log('Sucesso!')
+    // console.log('Sucesso!')
   }
-
 }
 
-
 function errorValidation (input, message){
-  const inputArea = input.parentElement;  //get the reference of inputArea at index.html
+  const inputArea = input.parentElement;
   const span = inputArea.querySelector('span')
 
   span.innerText = message
   inputArea.className = 'input-area warning'
 }
-
 
 function removeError(input, message){
   const inputArea = input.parentElement;  
@@ -125,3 +113,4 @@ function removeError(input, message){
   inputArea.className = 'input-area'
 }
 
+//Awesome challenge team DNC, it really helped me to remember and study more! 🔥🚀
