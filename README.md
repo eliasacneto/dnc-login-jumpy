@@ -15,7 +15,7 @@
 
  ### Screenshots:
 
- <img src="./assets/images/warning-alert.png" alt="Fields need attention">
+ <img src="/assets/images/warning-alert.png" alt="Fields need attention">
 
- <img src="./assets/images/success-alert.png" alt="Success">
+ <img src="/assets/images/success-alert.png" alt="Success">
 
